@@ -123,6 +123,7 @@
         .logo-portada {
             width: 80%;
             max-width: 500px;
+            cursor: pointer;
         }
         
         /* Imagen de E-commerce */
@@ -135,6 +136,7 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             border: 1px solid var(--rojo-tierra);
             margin-top: 20px;
+            cursor: pointer;
         }
 
         /* Navegación */
@@ -151,7 +153,7 @@
             color: var(--blanco-humo);
             border: none;
             padding: 10px 20px;
-            font-size: 1em;
+            font-size: 1.5em; /* Flechas más grandes */
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s;
@@ -160,21 +162,66 @@
             background-color: #7B3222;
         }
 
+        /* POPUP (LIGHTBOX) */
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            overflow-y: auto; /* Permite el scroll del pop-up */
+        }
+        .popup-content {
+            padding: 20px;
+            text-align: center;
+        }
+        .popup-img {
+            max-width: 90%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 5px;
+        }
+        .popup-close {
+            position: fixed; /* Posición fija para que el botón no se vaya con el scroll */
+            top: 10px;
+            right: 20px;
+            font-size: 2em;
+            color: white;
+            cursor: pointer;
+            text-shadow: 0 0 5px black;
+        }
+
+
         /* Media Queries para diseño responsive */
         @media screen and (max-width: 768px) {
+            .slide {
+                justify-content: flex-start; /* Contenido más arriba en móvil */
+                padding-top: 5vh;
+            }
             .content-box {
                 padding: 20px;
                 max-width: 95%;
+                margin-top: 20px;
+                max-height: 75vh;
             }
             h2 { font-size: 1.5em; }
             h3 { font-size: 1.2em; }
             p, li { font-size: 1em; }
             .nav-button {
                 padding: 8px 16px;
-                font-size: 0.9em;
+                font-size: 1.2em;
             }
             .logo-wrapper {
                 padding: 20px;
+            }
+            .ecommerce-preview {
+                width: 70%; /* Más grande en móvil para que se vea bien */
             }
         }
     </style>
@@ -373,15 +420,26 @@
     </div>
 
     <div class="navigation">
-        <button class="nav-button" id="prevBtn">← Anterior</button>
-        <button class="nav-button" id="nextBtn">Siguiente →</button>
+        <button class="nav-button" id="prevBtn">←</button>
+        <button class="nav-button" id="nextBtn">→</button>
     </div>
+
+    <div class="popup-overlay" id="popupOverlay">
+        <span class="popup-close">&times;</span>
+        <div class="popup-content">
+            <img src="" alt="Imagen ampliada" class="popup-img" id="popupImage">
+        </div>
+    </div>
+
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const slides = document.querySelectorAll('.slide');
             const prevBtn = document.getElementById('prevBtn');
             const nextBtn = document.getElementById('nextBtn');
+            const popupOverlay = document.getElementById('popupOverlay');
+            const popupImage = document.getElementById('popupImage');
+            const popupClose = document.querySelector('.popup-close');
             let currentSlide = 0;
 
             function showSlide(index) {
@@ -409,6 +467,26 @@
                     prevBtn.click();
                 }
             });
+
+            // Lógica del pop-up para las imágenes
+            document.querySelectorAll('.logo-portada, .ecommerce-preview').forEach(img => {
+                img.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Evita que el clic se propague al fondo
+                    popupImage.src = e.target.src;
+                    popupOverlay.style.display = 'flex';
+                });
+            });
+
+            popupClose.addEventListener('click', () => {
+                popupOverlay.style.display = 'none';
+            });
+
+            popupOverlay.addEventListener('click', (e) => {
+                if (e.target === popupOverlay) {
+                    popupOverlay.style.display = 'none';
+                }
+            });
+
             showSlide(currentSlide);
         });
     </script>
