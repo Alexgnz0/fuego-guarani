@@ -208,7 +208,8 @@
                 padding: 20px;
                 max-width: 95%;
                 margin-top: 20px;
-                max-height: 75vh;
+                max-height: 60vh; /* Ajuste para evitar solapamiento */
+                margin-bottom: 60px; /* Separación para las flechas */
             }
             h2 { font-size: 1.5em; }
             h3 { font-size: 1.2em; }
@@ -308,9 +309,10 @@
                 <h2>El Valor en los Pequeños Detalles</h2>
                 <p>Nuestra diferenciación no reside en lo grandilocuente, sino en la meticulosa atención a cada elemento del ritual. Los pequeños detalles son la firma de nuestro compromiso con la calidad y la identidad:</p>
                 <ul>
-                    <li><strong>Presentaciones con Alma:</strong> Los productos de gama de entrada, como sartenes o cuchillos, se entregan en **bolsas de tela serigrafiadas**, un toque artesanal que eleva la experiencia desde el primer contacto.</li>
-                    <li><strong>Protección y Legado:</strong> Nuestras parrillas incluyen **cobertores de lona para exterior**, protegiendo la nobleza del hierro y asegurando que cada producto se mantenga impecable a través del tiempo y las estaciones.</li>
-                    <li><strong>El Lujo de lo Auténtico:</strong> Para los productos premium, las presentaciones se transforman en rituales por sí mismos, con **cajas de madera acolchonadas** que envuelven la pieza como una joya. Los cobertores son de una **lona de mayor gramaje y calidad**, símbolo de un nivel de excelencia sin concesiones.</li>
+                    <li><strong>Calidad y durabilidad:</strong> Sartenes, cuchillos, y todos los accesorios están forjados con un estándar de calidad que asegura que duren toda la vida.</li>
+                    <li><strong>Presentaciones con Alma:</strong> Los productos de gama de entrada, se entregan en **bolsas de tela serigrafiadas**, un toque artesanal que eleva la experiencia desde el primer contacto.</li>
+                    <li><strong>Protección y Legado:</strong> Nuestras parrillas incluyen **cobertores de lona para exterior**, protegiendo la nobleza del hierro.</li>
+                    <li><strong>El Lujo de lo Auténtico:</strong> Para los productos premium, las presentaciones se transforman en rituales, con **cajas de madera acolchonadas**. Los cobertores son de una **lona de mayor gramaje y calidad**.</li>
                 </ul>
             </div>
         </div>
@@ -471,7 +473,7 @@
             // Lógica del pop-up para las imágenes
             document.querySelectorAll('.logo-portada, .ecommerce-preview').forEach(img => {
                 img.addEventListener('click', (e) => {
-                    e.stopPropagation(); // Evita que el clic se propague al fondo
+                    e.stopPropagation();
                     popupImage.src = e.target.src;
                     popupOverlay.style.display = 'flex';
                 });
