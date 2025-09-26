@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuego Guaraní: Propuesta de Marca</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Paleta de Colores de Fuego Guaraní */
+        :root {
+            --negro-carbon: #1D1D1B;
+            --rojo-tierra: #A6422B;
+            --marron-quebracho: #5C3B1E;
+            --acero-apagado: #CCCCCC;
+            --blanco-humo: #F9F8F6;
+        }
+
+        /* Estilos Generales y Responsivos */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            background-color: var(--negro-carbon);
+            color: var(--blanco-humo);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            line-height: 1.6;
+        }
+        .presentation-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        .slide {
+            width: 100%;
+            height: 100%;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+            background-image: url('background.jpg'); /* Reemplaza con la ruta de tu imagen */
+            background-size: cover;
+            background-position: center;
+            transition: opacity 0.8s ease-in-out;
+            opacity: 0;
+            text-align: center;
+        }
+        .slide.active {
+            display: flex;
+            opacity: 1;
+        }
+        
+        /* Contenedores de Texto para la "cartilla" */
+        .content-box {
+            background-color: rgba(29, 29, 27, 0.9); /* Negro carbón semitransparente */
+            padding: 30px 40px;
+            border-radius: 10px;
+            max-width: 900px;
+            text-align: left;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--rojo-tierra);
+            margin: 10px;
+        }
+
+        /* Estilo de Tipografía */
+        h1, h2, h3 {
+            font-family: 'Cinzel Decorative', serif;
+            color: var(--rojo-tierra);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            margin-top: 0;
+        }
+        h2 { font-size: 2em; margin-top: 20px; }
+        h3 { font-size: 1.5em; color: var(--blanco-humo); }
+        p, li { font-size: 1.1em; color: var(--acero-apagado); }
+        ul { list-style-type: none; padding-left: 0; }
+        ul li::before {
+            content: "•";
+            color: var(--rojo-tierra);
+            font-weight: bold;
+            display: inline-block; 
+            width: 1em;
+            margin-left: -1em;
+        }
+        strong {
+            color: var(--blanco-humo);
+        }
+
+        /* Estilos de tabla */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid var(--marron-quebracho);
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: var(--marron-quebracho);
+            color: var(--blanco-humo);
+        }
+        td {
+            background-color: var(--negro-carbon);
+            color: var(--acero-apagado);
+        }
+
+        /* Logo en la portada */
+        .logo-wrapper {
+            background-color: rgba(29, 29, 27, 0.8);
+            padding: 40px;
+            border-radius: 15px;
+            display: inline-block;
+        }
+        .logo-portada {
+            width: 80%;
+            max-width: 500px;
+        }
+        
+        /* Imagen de E-commerce */
+        .ecommerce-preview {
+            width: 40%;
+            display: block;
+            margin: 0 auto;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--rojo-tierra);
+            margin-top: 20px;
+        }
+
+        /* Navegación */
+        .navigation {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+        }
+        .nav-button {
+            background-color: var(--rojo-tierra);
+            color: var(--blanco-humo);
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .nav-button:hover {
+            background-color: #7B3222;
+        }
+
+        /* Media Queries para diseño responsive */
+        @media screen and (max-width: 768px) {
+            .content-box {
+                padding: 20px;
+                max-width: 95%;
+            }
+            h2 { font-size: 1.5em; }
+            h3 { font-size: 1.2em; }
+            p, li { font-size: 1em; }
+            .nav-button {
+                padding: 8px 16px;
+                font-size: 0.9em;
+            }
+            .logo-wrapper {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="presentation-container">
+        
+        <div class="slide active">
+            <div class="logo-wrapper">
+                <img src="logo.png" alt="Logo de Fuego Guaraní" class="logo-portada">
+            </div>
+        </div>
+        
+        <div class="slide">
+            <div class="content-box">
+                <h2>Sección A – Investigación y Análisis Competitivo (Benchmarking)</h2>
+                <h3>Contexto del Mercado Argentino</h3>
+                <p>En Argentina el asado y la cocina a leña son rituales sociales. Marcas como Tromen y Kankay han llevado este legado al comercio electrónico, combinando tradición con diseño de vanguardia. La categoría de parrillas, discos de arado, cuchillería y hierro fundido está en auge porque los consumidores buscan productos duraderos, saludables y estéticos que les permitan cocinar como lo hacían sus abuelos. A continuación se comparan los principales referentes.</p>
+                <h3>Adaptación del Análisis Competitivo</h3>
+                <ul>
+                    <li><strong>Tromen:</strong> líder industrial con salamandras y parrillas en grandes volúmenes. Su estética es moderna y su mensaje aspiracional (“hay una Tromen para cada persona”).</li>
+                    <li><strong>Kankay:</strong> nació como proyecto de amigos; comunica cercanía y rescata el valor del hierro forjado. Su contenido educativo sobre sartenes de hierro enfatiza durabilidad y ausencia de tóxicos.</li>
+                    <li><strong>Tiendas de discos y accesorios:</strong> como Punto Parrilla y La Sureña compiten en precio y financiamiento; destacan características básicas de productos, pero carecen de una narrativa emocional.</li>
+                    <li><strong>Cuchillerías artesanales:</strong> como Galucho ponen foco en la artesanía criolla, aunque su alcance digital es limitado.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>¿En qué se diferencia Fuego Guarani?</h2>
+                <ul>
+                    <li><strong>Herencia Correntina y Guaraní:</strong> Adoptar en el nombre visibiliza la cultura de la región y conecta con las raíces guaraníes, un elemento diferenciador que ninguna otra marca de este mercado utiliza actualmente. Esto resuena tanto localmente como en el exterior, donde lo auténtico y lo exótico atraen.</li>
+                    <li><strong>Ritual Completo del Fuego:</strong> Mientras Tromen y Kankay se centran en productos individuales, Fuego Guaraní propone abarcar todo el ritual: parrillas, discos de arado, cuchillería y accesorios, junto con educación sobre curado y recetas. Esta experiencia integral crea comunidad y fidelidad.</li>
+                    <li><strong>Narrativa Cultural y Comunitaria:</strong> A diferencia de las tiendas que se enfocan en descuentos y financiamiento, Fuego Guaraní contará historias de artesanos, campesinos y familias correntinas que mantienen viva la tradición del fuego. Nuestra comunidad podrá compartir recetas e historias, generando un vínculo emocional.</li>
+                    <li><strong>Diseño Moderno con Alma Artesanal:</strong> Tomaremos lo mejor del diseño contemporáneo de Tromen y Kankay, pero incorporando texturas de madera, hierro y motivos guaraníes para destacar la identidad local. Esto nos posiciona como una marca premium, pero auténtica.</li>
+                    <li><strong>Compromiso con la Salud y Sostenibilidad:</strong> Insistiremos en la ausencia de teflón y otros químicos, reforzando que los productos de hierro forjado son seguros y duraderos. Además, promoveremos prácticas de consumo responsable y reparación.</li>
+                </ul>
+                <p>Con Fuego Guaraní no solo vendemos utensilios; exportamos el legado correntino y guaraní, celebramos la cultura del fuego y ofrecemos una experiencia que nuestros competidores no han integrado de forma completa.</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Observaciones y Oportunidades</h2>
+                <ul>
+                    <li><strong>Ritual del fuego:</strong> pocos competidores profundizan en el ritual completo (preparación del fuego, curado de utensilios, historias familiares).</li>
+                    <li><strong>Tono visual:</strong> existe una oportunidad para fusionar lo mejor de ambos mundos: estética moderna con corazón artesanal.</li>
+                    <li><strong>Cuentas digitales:</strong> pocas empresas poseen blogs educativos consistentes o comunidades activas donde los clientes compartan recetas y experiencias.</li>
+                    <li><strong>Segmentación:</strong> se observa potencial para crear contenido específico para mujeres que disfrutan cocinar de manera consciente y saludable.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Sección B – Estrategia y Desarrollo de la Marca</h2>
+                <h3>Razón del Nombre Fuego Guaraní</h3>
+                <p>Fuego Guaraní nace como una declaración de identidad cultural y proyección internacional. El nombre conjuga dos elementos fundamentales: “Fuego”, símbolo universal del ritual, el encuentro y la cocina ancestral. Y “Guaraní”, raíz lingüística y cultural profundamente arraigada en Corrientes.</p>
+                <p>Esta combinación convierte al nombre en una marca con alma. Es local, pero tiene mirada global. Suena fuerte, sencillo, auténtico.</p>
+                <h3>Slogans / Taglines</h3>
+                <ul>
+                    <li>“Todo para el ritual del fuego”</li>
+                    <li>“Heredá la llama, disfrutá el sabor”</li>
+                    <li>“Cociná con hierro, viví sin químicos”</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>La Base de la Marca: Un Producto con Alma</h2>
+                <p>Fuego Guaraní se edifica sobre la excelencia de sus productos, diseñados para acompañar la evolución de cada parrillero, desde el que se inicia hasta el maestro. No solo vendemos parrillas; ofrecemos el inicio de un legado.</p>
+                <ul style="margin-top: 20px;">
+                    <li><strong>Modelos de Entrada de Alta Calidad:</strong> Para quienes se inician en el ritual del fuego, ofrecemos parrillas robustas y funcionales. Son la puerta de entrada a la experiencia Fuego Guaraní, con una durabilidad superior a la media y la promesa de un sabor inigualable.</li>
+                    <li><strong>Parrillas Premium:</strong> Para el parrillero experto, presentamos equipos construidos con materiales super-durables y de calidad premium. Cada pieza es una inversión a largo plazo, una herramienta para perfeccionar el arte del asado y transformar la cocina en una verdadera obra.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>El Valor en los Pequeños Detalles</h2>
+                <p>Nuestra diferenciación no reside en lo grandilocuente, sino en la meticulosa atención a cada elemento del ritual. Los pequeños detalles son la firma de nuestro compromiso con la calidad y la identidad:</p>
+                <ul>
+                    <li><strong>Presentaciones con Alma:</strong> Los productos de gama de entrada, como sartenes o cuchillos, se entregan en **bolsas de tela serigrafiadas**, un toque artesanal que eleva la experiencia desde el primer contacto.</li>
+                    <li><strong>Protección y Legado:</strong> Nuestras parrillas incluyen **cobertores de lona para exterior**, protegiendo la nobleza del hierro y asegurando que cada producto se mantenga impecable a través del tiempo y las estaciones.</li>
+                    <li><strong>El Lujo de lo Auténtico:</strong> Para los productos premium, las presentaciones se transforman en rituales por sí mismos, con **cajas de madera acolchonadas** que envuelven la pieza como una joya. Los cobertores son de una **lona de mayor gramaje y calidad**, símbolo de un nivel de excelencia sin concesiones.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Buyer Personas (Perfiles de Cliente Ideal)</h2>
+                <h3>Martín – El Asador Apasionado</h3>
+                <p><strong>Edad:</strong> 35-55 años. <strong>Motivación:</strong> Valora la tradición familiar, dispuesto a invertir en equipos que duren toda la vida. <strong>Comportamiento digital:</strong> Sigue cuentas de parrillas, busca reseñas de productos. <strong>Dolores:</strong> Frustración con parrillas de baja calidad; falta de asesoramiento sobre curado.</p>
+                <h3>Sofía – La Cocinera Consciente</h3>
+                <p><strong>Edad:</strong> 28-45 años. <strong>Motivación:</strong> Busca cocinar de forma saludable y sostenible. Le atrae la estética rústica. <strong>Comportamiento digital:</strong> Navega Pinterest y blogs de cocina. <strong>Dolores:</strong> Confusión sobre cómo curar y mantener el hierro; dificultades para encontrar productos que combinen estética y salud.</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Identidad Visual de Marca – Fuego Guaraní</h2>
+                <h3>Concepto Rector:</h3>
+                <p>“El ritual del fuego como herencia viva.”</p>
+                <p>La identidad visual debe transmitir: Arraigo en la tierra roja y tradiciones guaraníes. Nobleza de materiales. Estética sobria, rústica y elegante. Atemporalidad.</p>
+                <h3>Paleta de Colores</h3>
+                <table>
+                    <thead>
+                        <tr><th>Color</th><th>Significado</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Negro carbón</td><td>Hierro forjado, elegancia atemporal.</td></tr>
+                        <tr><td>Rojo tierra</td><td>Tierra colorada de Corrientes, fuego encendido.</td></tr>
+                        <tr><td>Marrón quebracho</td><td>Madera dura, rusticidad.</td></tr>
+                        <tr><td>Acero apagado</td><td>Herramientas forjadas, tono neutro.</td></tr>
+                        <tr><td>Blanco humo</td><td>Contraste suave, presencia de ceniza.</td></tr>
+                    </tbody>
+                </table>
+                <h3>Tipografía y Estilo Fotográfico</h3>
+                <p><strong>Titulares:</strong> Una tipografía serif robusta (ej. Cinzel Decorative). <strong>Textos secundarios:</strong> Sans-serif legible (ej. Montserrat). <strong>Estilo Fotográfico:</strong> Luz natural, sombras marcadas, fondos de madera rústica, tierra seca y brasas. Tonalidad cálida y desaturada.</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Sección C – Estrategia de Marketing Digital y Ventas</h2>
+                <h3>Plataforma de E-commerce</h3>
+                <p>Para un lanzamiento 100 % digital es fundamental ofrecer una experiencia inmersiva que refleje la filosofía de la marca: imágenes de alta resolución, videos cortos, sección de recetas, ficha técnica detallada y un blog integrado para SEO.</p>
+                <h3>Estrategia de Contenidos</h3>
+                <p><strong>Pilares:</strong></p>
+                <ul>
+                    <li><strong>Educativo:</strong> explicar el curado y mantenimiento de cuchillos.</li>
+                    <li><strong>Inspiracional:</strong> recetas, historias de clientes y artesanos.</li>
+                    <li><strong>Comunidad:</strong> repostear contenido generado por usuarios.</li>
+                    <li><strong>Producto y Lifestyle:</strong> presentar lanzamientos y ofertas.</li>
+                </ul>
+                <p><strong>Ideas de Formatos:</strong> Reels/TikTok (ASMR del chisporroteo), YouTube (recetas completas), Blog (artículos sobre hierro fundido), Newsletter (historias mensuales).</p>
+            </div>
+        </div>
+        
+        <div class="slide">
+            <div class="content-box">
+                <h2>Preview del E-commerce</h2>
+                <img src="ecommerce-preview.jpg" alt="Preview del sitio web de Fuego Guaraní" class="ecommerce-preview">
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Nuestra Tecnología: Potenciando la Experiencia</h2>
+                <p>La elección de **Adobe Commerce** como nuestra plataforma de e-commerce no es casual; es una declaración de intenciones. Esta tecnología nos brinda un nivel de **personalización inigualable**, permitiéndonos crear una experiencia de compra única y sin límites. Trabajaremos con los mejores desarrolladores del mercado para:</p>
+                <ul>
+                    <li>**Agregar funcionalidades** de forma constante, adaptándonos a las necesidades del cliente y del mercado.</li>
+                    <li>Implementar estrategias de **marketing agresivo**, captando al comprador indeciso o compulsivo con ofertas y experiencias personalizadas.</li>
+                    <li>**Potenciar las ventas** a través de un ecosistema digital robusto y escalable, que soporte nuestro crecimiento y ambición.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Facilidades de Pago y Envío</h2>
+                <p>El objetivo es eliminar cualquier barrera para que el cliente pueda acceder a la experiencia Fuego Guaraní. Por ello, ofrecemos una amplia gama de métodos de pago, diseñados para llegar tanto al cliente habitual como al cliente premium que busca que su producto sea un centro social en su hogar:</p>
+                <ul>
+                    <li>**Múltiples Plataformas:** Mercado Pago, Payway, Modo, Go Cuotas y Nave.</li>
+                    <li>**Flexibilidad Total:** Pago con múltiples métodos (parte contado, parte tarjeta) o el uso de dos tarjetas de forma simultánea.</li>
+                    <li>**Crédito Interno:** Ofrecemos crédito de la casa y un sistema de crédito argentino bajo validación de perfil crediticio con Nosis, asegurando que nadie se quede sin vivir el ritual del fuego.</li>
+                    <li>**Envíos Expresos:** Un servicio de envíos con **Andreani** que garantiza la rapidez y la seguridad para que el ritual comience lo antes posible.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Estrategia para Redes Sociales</h2>
+                <ul>
+                    <li><strong>Instagram:</strong> Plataforma principal con feed artístico y Reels de tutoriales. Colaboraciones con chefs e influencers.</li>
+                    <li><strong>Facebook:</strong> Crear un grupo llamado “Rituales del Fuego” para reunir a clientes y entusiastas.</li>
+                    <li><strong>Pinterest:</strong> Generar tableros visuales con moodboards para atraer a perfiles como Sofía.</li>
+                    <li><strong>TikTok:</strong> Aprovechar el formato dinámico para mostrar procesos rápidos de curado.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box" style="text-align: center;">
+                <h2>¡Muchas Gracias!</h2>
+                <p>Fuego Guaraní no es solo una marca; es un manifiesto cultural. Es el inicio de una nueva forma de entender el ritual del fuego.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="navigation">
+        <button class="nav-button" id="prevBtn">← Anterior</button>
+        <button class="nav-button" id="nextBtn">Siguiente →</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            let currentSlide = 0;
+
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    slide.classList.remove('active');
+                });
+                slides[index].classList.add('active');
+            }
+
+            nextBtn.addEventListener('click', () => {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            });
+
+            prevBtn.addEventListener('click', () => {
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                showSlide(currentSlide);
+            });
+
+            // Navegación con teclado
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight' || e.key === ' ') {
+                    nextBtn.click();
+                } else if (e.key === 'ArrowLeft') {
+                    prevBtn.click();
+                }
+            });
+            showSlide(currentSlide);
+        });
+    </script>
+
+</body>
+</html>
